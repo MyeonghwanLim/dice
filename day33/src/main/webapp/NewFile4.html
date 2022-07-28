@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>광고, 갤러리</title>
+<style type="text/css">
+	*{
+		margin:0px;
+		padding:0px;
+	
+	}
+	#content{
+		width:200px;
+		margin:20px;
+	}
+	#content .page{
+		text-align:right;
+		margin:5px;
+	}
+	#content .page button{
+		background: lightblue;
+		color:white;
+		width:20px;
+		height:20px;
+		overflow:hidden;
+		border:none;
+		line-height: 1.5;
+	}
+	#content .pic{
+		width:150px;
+		height:150px;
+		border:3px solid blue;
+		overflow:hidden;
+	}
+
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+<script type="text/javascript">
+$(document).ready(function(){
+    var total=$(".pic > div").length; // 
+    var curr=1;
+    $(".pageInfo > span:first").text(curr); // 가상 요소 선택자 사용
+    $(".pageInfo > span:last").text(total);
+    $(".nextBtn").click(function(){
+       curr++;
+       if(curr>total){
+          curr=1;
+       }
+       $(".pageInfo > span:first").text(curr);
+       $(".pic div:first").insertAfter(".pic div:last");
+    });
+    $(".prevBtn").click(function(){
+       curr--;
+       if(curr<1){
+          curr=total;
+       }
+       $(".pageInfo > span:first").text(curr);
+       $(".pic div:last").insertBefore(".pic div:first");
+    });
+ });
+
+</script>
+
+	<div id ="content">
+		<div class= "page">
+			<span class="pageInfo">
+			<span></span> / <span></span>
+			</span>
+			<button class="prevBtn">&lt; 이전</button>
+			<button class="nextBtn">&gt; 다음</button>
+		</div>
+		<div class= "pic">
+			<div><img alt="1번쨰 사진" src="images/all.gif"></div>
+			<div><img alt="2번쨰 사진" src="images/1.png"></div>
+			<div><img alt="3번째 사진" src="images/2.png"></div>
+			<div><img alt="4번째 사진" src="images/3.png"></div>
+		</div>
+	</div>
+
+</body>
+</html>

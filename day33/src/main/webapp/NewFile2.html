@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery CDN</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<style type="text/css">
+
+	hearder,div,nav,ul,li,footer { 
+		margin:5px;
+	}
+</style>
+</head>
+<body>
+<script type="text/javascript">
+	$(document).ready(function(){ // 화면에 모든 파일이 적재된 후에 작동하기 떄문에 어디에 작성하는지 중요하지 않다. 
+		$('.logo').css("border","5px solid lightgreen");
+		$('#gnb').css("border","1px solid red");
+		$('#footer,.left,.right').css("border","2px solid gray");
+	});
+</script>
+
+<header id= "header">
+	<div class ="logo">로고</div>
+	<div class ="search">검색하기</div>
+
+	<nav id="gnb">
+		<ul>
+			<li>메뉴1
+				<ul>
+					<li>메뉴1-1</li>
+					<li>메뉴1-2</li>
+				</ul>
+			</li>
+			<li>메뉴2</li>
+			
+		</ul>
+	</nav>
+</header>
+<div id ="content">
+	<div class="left">왼쪽</div>
+	<div class="right">오른쪽</div>
+</div>
+<footer id = "footer">
+	회사소개 <br>
+	개인정보 처리방침
+	
+</footer>
+
+
+</body>
+</html>

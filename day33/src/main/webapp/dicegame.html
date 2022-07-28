@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>주사위 게임</title>
+<style type="text/css">
+	#title{
+		width:500px;
+		height:50px;
+		background-color:lightpink;
+		line-height: 50px;
+		text-align:center;
+		cursor:poiter;
+		margin:0 auto;
+	}
+	#content{
+		width:500px;
+		height:400px;
+		background-color:lightgreen;
+		margin:0 auto;
+	}
+	#com{
+		float:left;
+	}
+	#guest{
+		float:right;
+	}
+</style>
+</head>
+<body>
+
+
+<div id = "title">게임시작!</div>
+<div id = "content">
+	<img id = "com"  alt="컴퓨터" src="images/all.gif">
+	<img id = "guest" alt="사용자" src="images/all.gif">
+
+</div>
+
+<script type="text/javascript">
+	document.querySelector('#title').onclick=function(){
+		if(this.firstChild.nodeValue=='게임시작!'){ //게임 시작이라는 노드를 가리키고 있다.
+			this.firstChild.nodeValue='결과 확인하기'; // 게임시작이라면 결과보기를 보게 만들어라
+			this.style.backgroundColor='lightblue';
+			startGame();
+		}
+		else{
+			this.firstChild.nodeValue='게임시작!'; // 결과 확인하기!라면 게임시작!을 보게 만들어라
+			this.style.backgroundColor='lightpink';
+			endGame();
+			
+		}
+	}
+	function startGame(){
+		document.querySelector('#com').src='images/all.gif';
+		document.querySelector('#guest').src='images/all.gif';
+		
+	}
+	function endGame(){
+		var com=Math.floor(Math.random()*6)+1;
+		var guest=Math.floor(Math.random()*6)+1;
+		document.querySelector('#com').src='images/'+com+'.png';
+		document.querySelector('#guest').src='images/'+guest+'.png';
+		setTimeout(function(){// setTimeout(함수명,시간)
+			if(com<guest){
+				alert('이김');
+			}
+			else if(com==guest){
+				alert('비김');
+			}
+			else{
+				alert('짐');
+			}
+		},500);
+	}
+</script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>아코디언 메뉴</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	crossorigin="anonymous"></script>
+<style type="text/css">
+
+nav {
+  width: 150px;
+}
+ul { padding: 0; }
+li {
+  list-style: none;
+  line-height: 34px;
+}
+a {
+  display: block; 
+  text-decoration: none;
+  color: #616161;
+  text-align: center;
+}
+.menu1 { background: #efefef; }
+.menu3 { background: #ddd; }
+.menu2 { display: none; } 
+
+.selec { background: #c45; color: black; }
+</style>
+</head>
+<body>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		  
+		 $('.menu2').hide();
+		 $('.menu3').hide();
+		  
+		  $('.menu1 > li > a').click(function(){
+		    $(this).next($('.menu2')).slideToggle('fast');
+		  })
+		  $('.menu2 > li > a').click(function(e){
+		    e.stopPropagation();
+		    $(this).next($('.menu3')).slideToggle('fast');
+		  })
+		  
+		 
+		  $('li > a').focus(function(){
+		    $(this).addClass('selec');
+		  })
+		  $("li > a").blur(function(){
+		    $(this).removeClass('selec');
+		  })
+		  
+		})
+</script>
+
+	<header id="header">
+
+		<nav id="gnb">
+			<ul class="menu1">
+				<li ><a href="#">고기</a>
+					<ul class="menu2">
+						<li><a href="#">돼지고기</a>
+							<ul class='menu3'>
+								<li><a href="#">삼겹살</a></li>
+								<li><a href="#">항정살</a></li>
+
+							</ul></li>
+						<li><a href="#">소고기</a>
+							<ul class='menu3'>
+								<li><a href="#">등심</a></li>
+								<li><a href="#">안심</a></li>
+							</ul></li>
+						<li><a href="#">가금류</a>
+							<ul class='menu3'>
+								<li><a href="#">닭</a></li>
+								<li><a href="#">메추리</a></li>
+
+							</ul></li>
+					</ul></li>
+				<li ><a href="#">채소</a>
+					<ul class="menu2">
+						<li><a href="#">과일</a></li>
+						<li><a href="#">야채</a></li>
+					</ul>
+				</li>
+				<li><a href="#">어류</a>
+					<ul class="menu2">
+						<li><a href="#">갑각류</a></li>
+						<li><a href="#">어패류</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>주사위 게임</title>
+<style type="text/css">
+ #game{
+	text-align:center;
+}
+.player{
+text-align: center;
+display: inline-block;
+}
+	#title{
+	border: 1px solid black;
+	
+}
+.player p{
+	border:1px solid black;
+}
+
+
+</style>
+</head>
+<body id="game">
+
+<div class="dice">
+	<p id="title">주사위게임</p>
+	<button onclick="game()">click!</button> 
+</div>
+<div class="player">
+	<p>computer</p>
+	<img  src="images/all.gif" alt = "dice image">
+</div>
+<div class="player">
+	<p>user</p>
+	<img src="images/all.gif" alt = "dice image">
+</div>
+
+
+<script type="text/javascript">
+function game () {
+	  var randomNumber1 = 
+	    Math.floor(Math.random() * 6) + 1;
+
+	  var randomImage ="images/"+randomNumber1+".png";
+
+	  document.querySelectorAll("img")[0].setAttribute("src",randomImage)
+
+
+
+	   var randomNumber2 = 
+	    Math.floor(Math.random() * 6) + 1;
+
+	   var randomImage2 ="images/"+randomNumber2+".png";
+
+	   document.querySelectorAll("img")[1].setAttribute("src",randomImage2)
+
+
+
+	    if (randomNumber1>randomNumber2) {
+
+	    document.getElementById('title').innerHTML = "컴퓨터가 이겼습니다."
+	   
+	}
+	     else if (randomNumber1<randomNumber2) {
+	    document.getElementById('title').innerHTML = "사용자가 이겼습니다."
+
+	}
+	     else{
+	    document.getElementById('title').innerHTML = "비겼습니다"  
+	}
+	}
+
+</script>
+</body>
+</html>
